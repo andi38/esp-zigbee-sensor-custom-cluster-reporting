@@ -7,20 +7,24 @@ Transmitted data is received by tasmota zigbee coordinator running on esp32c3.
 Previous work considered for this project are the examples from Espressif SDK (in particular "light sleep", "sleepy ED", and others from Zigbee-SDK) and the following projects:
 
 https://github.com/lmahmutov/esp32_c6_co2_sensor
+
 https://github.com/prairiesnpr/esp_zha_test_bench
 
 
 ## Getting started
 
 For a fresh install make directory ~/esp and within install esp-idf (legacy installation) and esp-zigbee-sdk according to this instructions:
+
 https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-macos-setup-legacy.html
+
 https://docs.espressif.com/projects/esp-zigbee-sdk/en/latest/esp32/developing.html
 
 Put folder light_sleep into folder ~/esp and compile according esp-idf manual (run export.sh, set-target, menuconfig, and build). For this to work I had to set the following parameters:
-- Chage paths for SRC_DIRS and INCLUDE_DIRS in main/CMakeLists.txt according to your installation.
+- Change paths for SRC_DIRS and INCLUDE_DIRS in main/CMakeLists.txt according to your installation.
 - Within menuconfig select a) zigbee end device, b) custom partition table, c) power management, and d) flash size.
 
 Tasmota zigbee coordinator was version 14.2.0 on esp32c3 with cc2530/cc2591 zigbee module:
+
 https://tasmota.github.io/docs/Zigbee/
 
 Within tasmota after enabling joining (ZbPermitJoin) bind the device with ZbBind {"Device":"0x1ae5", "Cluster": "0xff00", "Endpoint": 90}, changing device address to the applicable value. The data (here ADC value 1853) can be retrieved via MQTT in the following format, where "FF00/0001" is the chosen custom cluster and custom attribute ID: tele/tasmota_C126AC/SENSOR = {"ZbReceived":{"0x1AE5":{"Device":"0x1AE5","FF00/0001":1853,"Endpoint":90,"LinkQuality":184}}}
