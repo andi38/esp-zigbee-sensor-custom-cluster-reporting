@@ -31,4 +31,6 @@ Within tasmota after enabling joining (ZbPermitJoin) bind the device with ZbBind
 
 Reporting intervals and other parameters are set in zb_ntc_sleep_xx.h. Data is reported when changed more then DELTA, latest after MAX_INTERVAL, earliest after MIN_INTERVAL. A switch (here GPIO3 in esp32c6 and GPIO4 in esp32h2) is added to transmit more frequently in order to run a calibration sequence. Obtaining correct temperature from the ADC reading is done in a seperate script including the calibration function, e.g. a python script listening to MQTT and writing to a database.
 
-Although in the schematic 3.0 V is drawn as supply, I observed instabilities with 3.0 V and now prefer using 3.3 V or 3.6 V. zb_ntc_sleep.bin is compiled for esp32c6.
+Although in the schematic 3.0 V is drawn as supply, I observed instabilities with 3.0 V and now prefer using 3.3 V or 3.6 V.
+
+Binaries in /bin are compiled for esp32c6.
