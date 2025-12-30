@@ -10,6 +10,8 @@ https://github.com/lmahmutov/esp32_c6_co2_sensor
 
 https://github.com/prairiesnpr/esp_zha_test_bench
 
+https://github.com/luar123/esphome_zb_sensor
+
 
 ## Getting started
 
