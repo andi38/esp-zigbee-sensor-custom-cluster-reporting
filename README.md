@@ -21,9 +21,7 @@ https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/linux-ma
 
 https://docs.espressif.com/projects/esp-zigbee-sdk/en/latest/esp32/developing.html
 
-Put folder light_sleep into folder ~/esp and compile according esp-idf manual (run export.sh, set-target, menuconfig, and build). For this to work I had to set the following parameters:
-- Change paths for SRC_DIRS and INCLUDE_DIRS in main/CMakeLists.txt according to your installation.
-- Within menuconfig select a) zigbee end device, b) custom partition table, c) power management, and d) flash size.
+Put folder light_sleep into folder ~/esp and compile according esp-idf manual (run export.sh and build according to existing sdkconfig). Have the paths for SRC_DIRS and INCLUDE_DIRS in main/CMakeLists.txt changed according to your installation if necessary.
 
 ## Data transmission
 
@@ -35,6 +33,8 @@ Within tasmota after enabling joining (ZbPermitJoin) and establishing a connecti
 
 Reporting intervals and other parameters are set in zb_ntc_sleep_xx.h. Data is reported when changed more then DELTA, latest after MAX_INTERVAL, earliest after MIN_INTERVAL. A switch (here GPIO3 in esp32c6 and GPIO4 in esp32h2) is added to transmit more frequently in order to run a calibration sequence. Obtaining correct temperature from the ADC reading is done in a seperate script including the calibration function, e.g. a python script listening to MQTT and writing to a database.
 
-Although in the schematic 3.0 V is given as supply, I observed instabilities with 3.0 V (two alkaline cells) and now prefer using 3.3 V or 3.6 V.
+## Power consumption
 
-Binaries in /bin are compiled for esp32c6.
+Although in the schematic 3.0 V is given as supply, I observed instabilities with 3.0 V (two alkaline cells) and now prefer using 3.3 V or 3.6 V. Current consumption with esp32c6 was about 500 µA in average (during light sleep phase 53 µA). One transmission was about 106 mJ during less than 0.9 s. One minute idling and ADC activity was about 700 mJ.
+
+Binaries in /bin were compiled for esp32c6.
