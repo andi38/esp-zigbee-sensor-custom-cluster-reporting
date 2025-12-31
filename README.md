@@ -35,6 +35,6 @@ Reporting intervals and other parameters are set in zb_ntc_sleep_xx.h. Data is r
 
 ## Power consumption
 
-Although in the schematic 3.0 V is given as supply, I observed instabilities with 3.0 V (two alkaline cells) and now prefer using 3.3 V or 3.6 V. Current consumption with esp32c6 was about 500 µA in average (during light sleep phase 53 µA). One transmission was about 106 mJ during less than 0.9 s. One minute idling and ADC activity was about 700 mJ.
+Although in the schematic 3.0 V is given as supply, I observed instabilities with 3.0 V (two alkaline cells) and now prefer using 3.3 V or 3.6 V. Current consumption with esp32c6 was about 500 µA in average (during light sleep phase 53 µA). One transmission was about 106 mJ during less than 0.9 s. One minute idling and ADC activity was about 700 mJ. So, once joined, during 15 minutes with one transmission (no temperature change) in average 260 µA were drawn.
 
 Binaries in /bin were compiled for esp32c6.
