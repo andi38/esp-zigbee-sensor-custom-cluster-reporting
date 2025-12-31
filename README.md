@@ -1,4 +1,4 @@
-# ESP32-C6 &amp; ESP32-H2 Zigbee Sensor (Analog NTC) Custom Cluster Reporting
+# ESP32-C6 &amp; ESP32-H2 Zigbee Sensor (Analog NTC) Custom Cluster Reporting with Light Sleep
 
 This project is about reporting temperature values through zigbee network. Temperature is measured by ADC with NTC resistor. Zigbee function is a custom cluster with minimal, maximal, and on-change reporting intervals in order to transmit more frequently on changes. Light sleep is used to reduce energy consumption. It works on both esp32c6 and esp32h2 as zigbee end device.
 
