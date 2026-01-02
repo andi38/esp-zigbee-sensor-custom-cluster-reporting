@@ -2,7 +2,7 @@
 
 This project is about reporting temperature values through zigbee network. Temperature is measured by ADC with NTC resistor. Zigbee function is a custom cluster with minimal, maximal, and on-change reporting intervals in order to transmit more frequently on changes. Light sleep is used to reduce energy consumption. It works on both esp32c6 and esp32h2 as zigbee end device.
 
-Transmitted data is received by tasmota zigbee coordinator running on esp32c3.
+Transmitted data is received by tasmota zigbee coordinator.
 
 Previous work considered for this project are the examples from Espressif SDK (in particular "light sleep", "sleepy ED", and others from Zigbee-SDK) and the following projects:
 
